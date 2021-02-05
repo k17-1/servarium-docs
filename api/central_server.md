@@ -1,22 +1,22 @@
 # Map
 - `users`
-    - [`/api/v1/users/register`](#/api/v1/users/register)
-    - [`/api/v1/users/auth`](#/api/v1/users/auth)
-    - [`/api/v1/users/reset_request`](#/api/v1/users/reset_request)
-    - [`/api/v1/users/reset`](#/api/v1/users/reset)
-    - [`/api/v1/users/avatar`](#/api/v1/users/avatar)
-    - [`/api/v1/users/about`](#/api/v1/users/about)
-    - [`/api/v1/users/:user_id/communities`](#/api/v1/users/communities)
-    - [`/api/v1/users/:user_id/subscribes`](#/api/v1/users/subscribes)
-    - [`/api/v1/users/subscribe`](#/api/v1/users/subscribe)
-    - [`/api/v1/users/unsubscribe`](#/api/v1/users/unsubscribe)
+    - [`/api/v1/users/register`](#/apiv1usersregister)
+    - [`/api/v1/users/auth`](#apiv1usersauth)
+    - [`/api/v1/users/reset_request`](#apiv1usersreset_request)
+    - [`/api/v1/users/reset`](#apiv1users/reset)
+    - [`/api/v1/users/avatar`](#apiv1usersavatar)
+    - [`/api/v1/users/about`](#apiv1usersabout)
+    - [`/api/v1/users/:user_id/communities`](#apiv1userscommunities)
+    - [`/api/v1/users/:user_id/subscribes`](#apiv1userssubscribes)
+    - [`/api/v1/users/subscribe`](#apiv1userssubscribe)
+    - [`/api/v1/users/unsubscribe`](#apiv1usersunsubscribe)
 - `community`
-    - [`/api/v1/community/:name`](#/api/v1/community/:name)
-    - [`/api/v1/community/:name/posts/text`](#/api/v1/community/:name/posts/text)
-    - [`/api/v1/community/:name/posts/:post_id`](#/api/v1/community/:name/posts/:post_id)
-    - [`/api/v1/community/:name/posts/:post_id/like`](#/api/v1/community/:name/posts/:post_id/like)
-    - [`/api/v1/community/:name/posts/:post_id/dislike`](#/api/v1/community/:name/posts/:post_id/dislike)
-    - [`/api/v1/community/:name/posts/:post_id/comment`](#/api/v1/community/:name/posts/:post_id/comment)
+    - [`/api/v1/community/:name`](#apiv1communityname)
+    - [`/api/v1/community/:name/posts/text`](#apiv1communitynamepoststext)
+    - [`/api/v1/community/:name/posts/:post_id`](#apiv1communitynamepostspost_id)
+    - [`/api/v1/community/:name/posts/:post_id/like`](#apiv1communitynamepostspost_idlike)
+    - [`/api/v1/community/:name/posts/:post_id/dislike`](#apiv1communitynamepostspost_iddislike)
+    - [`/api/v1/community/:name/posts/:post_id/comment`](#apiv1communitynamepostspost_idcomment)
 
 # Schema
 ## Users
