@@ -26,6 +26,7 @@ Response data: `array` of [`Comment`](#Comment)
 - owner: `string`,
 - likes: `number`,
 - dislikes: `number`,
+- type: `"text"|"poll"`
 - posted: `datetime` in UTC in the format `dd/mm/yy hh:mm:ss`,
 
 Example:
@@ -35,6 +36,7 @@ Example:
   "owner": "Andrey",
   "likes": 10,
   "dislikes": 20,
+  "type": "text",
   "posted": "10/02/21"
 }
 ```
@@ -90,7 +92,6 @@ Example:
           "text": "answer1",
           "voter_count": 10
       },
-      "link.to/photo2",
   ] 
 }
 ```

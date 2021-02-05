@@ -143,6 +143,17 @@ Create a text post for the following community. Request must be sent using `mult
 
 Response data: empty object
 
+## `/api/v1/community/:name/posts/poll`
+**POST** `/api/v1/community/:name/posts/poll`
+
+Create a text post for the following community. Request must be sent using `multipart/form-data`.
+
+- `community`: string,
+- `question`: string,
+- `answers`: array of string,
+
+Response data: empty object
+
 ## `/api/v1/community/:name/posts/:post_id`
 **GET** `/api/v1/community/:name/post/:post_id`
 
