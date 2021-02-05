@@ -1,4 +1,4 @@
-- [Central server API](api/central_server.md)
+- [Central server API](central_server.md)
 - [Local server API](local_server.md)
 
 # Центральный сервер
