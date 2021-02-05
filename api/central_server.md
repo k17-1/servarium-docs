@@ -1,5 +1,26 @@
+# Map
+- `users`
+    - [`/api/v1/users/register`](#/api/v1/users/register)
+    - [`/api/v1/users/auth`](#/api/v1/users/auth)
+    - [`/api/v1/users/reset_request`](#/api/v1/users/reset_request)
+    - [`/api/v1/users/reset`](#/api/v1/users/reset)
+    - [`/api/v1/users/avatar`](#/api/v1/users/avatar)
+    - [`/api/v1/users/about`](#/api/v1/users/about)
+    - [`/api/v1/users/:user_id/communities`](#/api/v1/users/communities)
+    - [`/api/v1/users/:user_id/subscribes`](#/api/v1/users/subscribes)
+    - [`/api/v1/users/subscribe`](#/api/v1/users/subscribe)
+    - [`/api/v1/users/unsubscribe`](#/api/v1/users/unsubscribe)
+- `community`
+    - [`/api/v1/community/:name`](#/api/v1/community/:name)
+    - [`/api/v1/community/:name/posts/text`](#/api/v1/community/:name/posts/text)
+    - [`/api/v1/community/:name/posts/:post_id`](#/api/v1/community/:name/posts/:post_id)
+    - [`/api/v1/community/:name/posts/:post_id/like`](#/api/v1/community/:name/posts/:post_id/like)
+    - [`/api/v1/community/:name/posts/:post_id/dislike`](#/api/v1/community/:name/posts/:post_id/dislike)
+    - [`/api/v1/community/:name/posts/:post_id/comment`](#/api/v1/community/:name/posts/:post_id/comment)
+
 # Schema
-## `/api/v1/users/register`
+## Users
+### `/api/v1/users/register`
 **POST** `/api/v1/users/register`
 
 Register a user.
@@ -10,7 +31,7 @@ Register a user.
 
 Response data: [`User`](#User)
 
-## `/api/v1/users/auth`
+### `/api/v1/users/auth`
 **POST** `/api/v1/users/auth`
 
 Authorize a user. Returns the token which is must be put in the `Authorization` header like this: `Authorization: bearer <token>`.
@@ -26,7 +47,7 @@ Response data:
 }
 ```
 
-## `/api/v1/users/reset_request`
+### `/api/v1/users/reset_request`
 **POST** `/api/v1/users/reset_request`
 
 Sends link for the restore the password.
@@ -35,7 +56,7 @@ Sends link for the restore the password.
 
 Response data: nothing
 
-## `/api/v1/users/reset`
+### `/api/v1/users/reset`
 **POST** `/api/v1/users/reset`
 
 Reset the password.
@@ -45,7 +66,7 @@ Reset the password.
 
 Response data: nothing
 
-## `/api/v1/users/avatar`
+### `/api/v1/users/avatar`
 **POST** `/api/v1/users/avatar`
 
 Add an avatar to the self. The request sends using `multipart/form-data`.
@@ -54,7 +75,7 @@ Add an avatar to the self. The request sends using `multipart/form-data`.
 
 Response data: empty object
 
-## `/api/v1/users/about`
+### `/api/v1/users/about`
 **POST** `/api/v1/users/about`
 
 Sets information in the "about" field.
@@ -63,7 +84,21 @@ Sets information in the "about" field.
 
 Response data: empty object
 
-## `/api/v1/users/subscribe`
+### `/api/v1/users/:user_id/communities`
+**GET** `/api/v1/users/:user_id/subscribes`
+
+Get communities where `user_id` is owner.
+
+Response data: `array` of [`Community`](#Community)
+
+### `/api/v1/users/:user_id/subscribes`
+**GET** `/api/v1/users/:user_id/subscribes`
+
+Get user subscribes.
+
+Response data: `array` of [`Community`](#Community)
+
+### `/api/v1/users/subscribe`
 **POST** `/api/v1/users/subscribe`
 
 Subscribe to the specified community.
@@ -72,7 +107,7 @@ Subscribe to the specified community.
 
 Response data: empty object
 
-## `/api/v1/users/unsubscribe`
+### `/api/v1/users/unsubscribe`
 **POST** `/api/v1/users/unsubscribe`
 
 Unsubscribe from the specified community.
@@ -81,7 +116,7 @@ Unsubscribe from the specified community.
 
 Response data: empty object
 
-## `/api/v1/users/:user/posts`
+### `/api/v1/users/:user/posts`
 **GET** `/api/v1/users/:user/posts?page=N&count=M`
 
 Get M posts at the N page with.
@@ -108,24 +143,33 @@ Create a text post for the following community. Request must be sent using `mult
 
 Response data: empty object
 
-## `/api/v1/community/:community/posts`
-**GET** `/api/v1/community/:community/posts?page=N&count=M`
+## `/api/v1/community/:name/posts/:post_id`
+**GET** `/api/v1/community/:name/post/:post_id`
 
-Get M posts at the N page sorted by time of posts.
+Get info about post with `post_id` id.
 
-Response data: array of [`PostInfo`](#PostInfo)
+Response data: [`PostInfo`](#PostInfo)
 
-## `/api/v1/community/:community/posts/:post_id/like`
-**POST** `/api/v1/community/:community/posts/:post_id/like`
+## `/api/v1/community/:name/posts/:post_id/like`
+**POST** `/api/v1/community/:name/posts/:post_id/like`
 
-Like the post with `post_id` id in the `community` community.
+Like the post with `post_id` id in the `name` community.
 
 Response data: empty object.
 
-## `/api/v1/community/:community/posts/:post_id/dislike`
-**POST** `/api/v1/community/:community/posts/:post_id/dislike`
+## `/api/v1/community/:name/posts/:post_id/dislike`
+**POST** `/api/v1/community/:name/posts/:post_id/dislike`
 
-Dislike the post with `post_id` id in the `community` community.
+Dislike the post with `post_id` id in the `name` community.
+
+Response data: empty object.
+
+## `/api/v1/community/:name/posts/:post_id/comment`
+**POST** `/api/v1/community/:name/posts/:post_id/comment`
+
+Comment the post with `post_id` id in the `name` community.
+
+- `text`: string
 
 Response data: empty object.
 
@@ -177,7 +221,6 @@ Example:
 ## PostInfo
 - owner: `string`,
 - community: `string`,
-- title: `string`,
 - id: `string`, an unique identifier for the post,
 - hash: `string`, the hash of the title+body+author,
 - posted: datetime in UTC in the format `dd/mm/yy hh:mm:ss`,
@@ -188,7 +231,6 @@ Example:
 {
   "owner": "Otradskaya",
   "community": "College_Server",
-  "title": "Why you should choose the College Server",
   "id": "the_best_college",
   "hash": "sdfhy24q3gyb35hg5b",
   "date": "10/02/21 12:05:31",
