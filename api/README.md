@@ -1,3 +1,6 @@
+- [Central server API](/central_server.md)
+- [Local server API](/local_server.md)
+
 # Центральный сервер
 Два ендпоинта: для локальных серверов и для клиентов.
 
