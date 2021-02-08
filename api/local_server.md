@@ -108,6 +108,7 @@ Example:
 ```
 
 ## Comment
+- id: `number`,
 - owner: `string`,
 - text: `string`,
 - posted: `datetime` in UTC in the format `dd/mm/yy hh:mm:ss`,
@@ -115,6 +116,7 @@ Example:
 Example:
 ```json
 {
+  "id": 123,
   "owner": "Andrey",
   "text": "some",
   "posted": "10/02/21"

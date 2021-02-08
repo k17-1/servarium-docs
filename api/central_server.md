@@ -18,6 +18,7 @@
     - [`/api/v1/community/:name/posts/:post_id/like`](#apiv1communitynamepostspost_idlike)
     - [`/api/v1/community/:name/posts/:post_id/dislike`](#apiv1communitynamepostspost_iddislike)
     - [`/api/v1/community/:name/posts/:post_id/comment`](#apiv1communitynamepostspost_idcomment)
+    - [`/api/v1/community/:name/posts/:post_id/comment/:comment_id`](#apiv1communitynamepostspost_idcommentcomment_id)
 - Types
     - [`User`](#User)
     - [`Community`](#Community)
@@ -190,6 +191,13 @@ Comment the post with `post_id` id in the `name` community.
 
 Response data: empty object.
 
+### `/api/v1/community/:name/posts/:post_id/comment/:comment_id`
+**GET** `/api/v1/community/:name/posts/:post_id/comment/:comment_id`
+
+Get info about the the comment with `comment_id` of the post with `post_id` id in the `name` community.
+
+Response data: [`CommentInfo`](#CommentInfo).
+
 ### `/api/v1/community/:name/posts/:post_id/report_hash`
 **POST** `/api/v1/community/:name/posts/:post_id/report_hash`
 
@@ -252,7 +260,6 @@ Example:
 - community: `string`,
 - id: `string`, an unique identifier for the post,
 - hash: `string`, the hash of the title+body+author,
-- posted: datetime in UTC in the format `dd/mm/yy hh:mm:ss`,
 - liked: `bool`, true if the user like this post
 
 Example:
@@ -262,7 +269,20 @@ Example:
   "community": "College_Server",
   "id": "the_best_college",
   "hash": "sdfhy24q3gyb35hg5b",
-  "date": "10/02/21 12:05:31",
   "liked": true,
+}
+```
+
+## CommentInfo
+- id: `string`,
+- owner: `string`,
+- hash: `string`,
+
+Example:
+```json
+{
+  "id": "aabb", 
+  "owner": "Otradskaya",
+  "hash": "sdfhy24q3gyb35hg5b",
 }
 ```
