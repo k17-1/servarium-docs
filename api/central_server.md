@@ -1,6 +1,6 @@
 # Map
 - `users`
-    - [`/api/v1/users/register`](#/apiv1usersregister)
+    - [`/api/v1/users/register`](#apiv1usersregister)
     - [`/api/v1/users/auth`](#apiv1usersauth)
     - [`/api/v1/users/reset_request`](#apiv1usersreset_request)
     - [`/api/v1/users/reset`](#apiv1users/reset)
@@ -13,10 +13,15 @@
 - `community`
     - [`/api/v1/community/:name`](#apiv1communityname)
     - [`/api/v1/community/:name/posts/text`](#apiv1communitynamepoststext)
+    - [`/api/v1/community/:name/posts/poll`](#apiv1communitynamepostspoll)
     - [`/api/v1/community/:name/posts/:post_id`](#apiv1communitynamepostspost_id)
     - [`/api/v1/community/:name/posts/:post_id/like`](#apiv1communitynamepostspost_idlike)
     - [`/api/v1/community/:name/posts/:post_id/dislike`](#apiv1communitynamepostspost_iddislike)
     - [`/api/v1/community/:name/posts/:post_id/comment`](#apiv1communitynamepostspost_idcomment)
+- Types
+    - [`User`](#User)
+    - [`Community`](#Community)
+    - [`PostInfo`](#PostInfo)
 
 # Schema
 ## Users
@@ -123,14 +128,15 @@ Get M posts at the N page with.
 
 Response data: array of [`PostInfo`](#PostInfo)
 
-## `/api/v1/community/:name`
+## Community
+### `/api/v1/community/:name`
 **GET** `/api/v1/community/:name`
 
 Returns info about the community.
 
 Response data: [`Community`](#Community)
 
-## `/api/v1/community/:name/posts/text`
+### `/api/v1/community/:name/posts/text`
 **POST** `/api/v1/community/:name/posts/text`
 
 Create a text post for the following community. Request must be sent using `multipart/form-data`.
@@ -143,7 +149,7 @@ Create a text post for the following community. Request must be sent using `mult
 
 Response data: empty object
 
-## `/api/v1/community/:name/posts/poll`
+### `/api/v1/community/:name/posts/poll`
 **POST** `/api/v1/community/:name/posts/poll`
 
 Create a text post for the following community. Request must be sent using `multipart/form-data`.
@@ -154,28 +160,28 @@ Create a text post for the following community. Request must be sent using `mult
 
 Response data: empty object
 
-## `/api/v1/community/:name/posts/:post_id`
+### `/api/v1/community/:name/posts/:post_id`
 **GET** `/api/v1/community/:name/post/:post_id`
 
 Get info about post with `post_id` id.
 
 Response data: [`PostInfo`](#PostInfo)
 
-## `/api/v1/community/:name/posts/:post_id/like`
+### `/api/v1/community/:name/posts/:post_id/like`
 **POST** `/api/v1/community/:name/posts/:post_id/like`
 
 Like the post with `post_id` id in the `name` community.
 
 Response data: empty object.
 
-## `/api/v1/community/:name/posts/:post_id/dislike`
+### `/api/v1/community/:name/posts/:post_id/dislike`
 **POST** `/api/v1/community/:name/posts/:post_id/dislike`
 
 Dislike the post with `post_id` id in the `name` community.
 
 Response data: empty object.
 
-## `/api/v1/community/:name/posts/:post_id/comment`
+### `/api/v1/community/:name/posts/:post_id/comment`
 **POST** `/api/v1/community/:name/posts/:post_id/comment`
 
 Comment the post with `post_id` id in the `name` community.
@@ -183,6 +189,18 @@ Comment the post with `post_id` id in the `name` community.
 - `text`: string
 
 Response data: empty object.
+
+### `/api/v1/community/:name/posts/:post_id/report_hash`
+**POST** `/api/v1/community/:name/posts/:post_id/report_hash`
+
+Report that hash does not match the post. If is it, server returns `matches: false`, else `matches: true`. 
+
+Response data: 
+```json
+{
+  "matches": bool
+}
+```
 
 # Types
 ## User
